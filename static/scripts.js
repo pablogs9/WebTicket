@@ -26,9 +26,13 @@ $(document).ready(function () {
         event.preventDefault();
         $(this).removeClass('drop');
         var files = event.originalEvent.dataTransfer.files;
-        //alert(files.item(0).name);
         handleFileUpload(files.item(0));
     });
+    
+    $("#button-zone").change(function (){
+       var files = $("#button-zone").prop('files');
+       handleFileUpload(files.item(0));
+     });
 
     function handleFileUpload(file) {
         var data = new FormData();        
