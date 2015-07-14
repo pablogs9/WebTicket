@@ -9,7 +9,10 @@ app = Flask('WebTickets')
 def upload_file():
     if request.method == 'POST':
         f = request.files['pic']
-        size = int(request.form['size'])
+        try:
+            size = int(request.form['size'])
+        except:
+            size = 10
 
         originalfilename = secure_filename(f.filename)
 
@@ -21,17 +24,14 @@ def upload_file():
         filename = str(countfilename) + '-' + originalfilename
         f.save('uploads/' + filename)
         ticketPreview(filename,size)
-        return '<meta http-equiv="refresh" content="0; url=static/images/{0}" />'.format(filename)
+        return '/static/images/{0}'.format(filename.split('.')[0] + ".jpg")
 
 @app.route("/")
 def index():
     return render_template('index.html')
 
 if __name__ == "__main__":
-    if len(sys.argv) >= 3:
-        try:
-            app.run(host=sys.argv[1], port=int(sys.argv[2]),debug=True)
-        except:
-            print "Usage: python webservice.py [IP] [Port]"
-    else:
+    try:
+        app.run(host=sys.argv[1], port=int(sys.argv[2]),debug=True)
+    except:
         app.run(host="0.0.0.0", port=8000, debug=True)

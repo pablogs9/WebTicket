@@ -1,0 +1,21 @@
+body {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.upload-drop-zone {
+    height: 100px;
+    border-width: 2px;
+    margin-bottom: 20px;
+    color: #ccc;
+    border-style: dashed;
+    border-color: #ccc;
+    line-height: 100px;
+    text-align: center
+}
+.drop {
+    color: #222;
+    border-color: #222;
+}
+.img-responsive {
+    margin: 0 auto;
+}
