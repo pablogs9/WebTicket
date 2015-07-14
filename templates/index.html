@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="UTF-8"></meta>
+        <meta name="author" content="Pablo Garrido Sanchez"></meta>
+        <link rel="stylesheet" type="text/css" href="static/style.css"></link>
+        <title>WebTickets</title>
+    </head>
+    
+    <body>
+        <h1>WebTickets</h1>
+            <p>Ticket Postal Postering</p>
+            <form id="uploadForm" action="upload" method="POST" enctype="multipart/form-data">
+                <fieldset>
+                    <legend>Titulo</legend>
+                    <fieldset>
+                        <table>
+                            <tr>
+                                <td>Photo</td> <td><input type="file" id="pic" name="pic" accept="image/*"></td>
+                            </tr>
+                            <tr>
+                                <td>Size</td> <td><input type="text" id="size" name="size" value="4"></td>
+                            </tr>
+                        </table>
+                        
+                    </fieldset>
+                    <button id="submit">Enviar</button>
+                </fieldset>
+                
+            </form>
+			</body>
+</html>
