@@ -2,3 +2,5 @@
 venv/
 uploads/
 static/images/
+static/we/
+static/samples/

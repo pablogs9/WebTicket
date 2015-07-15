@@ -11,6 +11,8 @@ def upload_file():
         f = request.files['pic']
         try:
             size = int(request.form['size'])
+            if size not in [4,10,25]:
+                size = 10
         except:
             size = 10
 
@@ -29,6 +31,10 @@ def upload_file():
 @app.route("/")
 def index():
     return render_template('index.html')
+
+@app.route("/howdoesitlook")
+def howdoesitlook():
+    return render_template('app.html')
 
 if __name__ == "__main__":
     try:

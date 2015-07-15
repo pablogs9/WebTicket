@@ -2,6 +2,12 @@ body {
     padding-top: 20px;
     padding-bottom: 20px;
 }
+.row.row-custom {
+    margin-top: 10px;
+}
+#menu{
+    margin-bottom: 40px;
+}
 .upload-drop-zone {
     height: 100px;
     border-width: 2px;

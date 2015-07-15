@@ -42,5 +42,8 @@ def ticketPreview(name,size):
                     imaux = im.crop((i*256,j*256,i*256+256,j*256+hAux))
                     hAux = 0
                 canvas.paste(imaux,(i*256+(i+1)*marginh,j*256+(j+1)*marginv))
+    max_image_width = 2048*2
+    if canvas.size[0] > max_image_width:
+        canvas = canvas.resize((max_image_width,int(canvas.size[1]*(float(max_image_width)/float(canvas.size[0])))),Image.ANTIALIAS)
     canvas.save("static/images/" + name.split('.')[0]+ ".jpg")
     return 1
