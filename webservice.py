@@ -36,6 +36,10 @@ def index():
 def howdoesitlook():
     return render_template('app.html')
 
+@app.route("/howdoesitreallylook")
+def howdoesitreallylook():
+    return render_template('samples.html')
+
 if __name__ == "__main__":
     try:
         app.run(host=sys.argv[1], port=int(sys.argv[2]),debug=True)
