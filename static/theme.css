@@ -10,13 +10,17 @@ body {
     border-style: dashed;
     border-color: #ccc;
     line-height: 100px;
-    text-align: center
+    text-align: center;
 }
 .drop {
     color: #222;
     border-color: #222;
 }
 .img-responsive {
+    margin: 0 auto;
+}
+.form-control {
+    width: 15%;
     margin: 0 auto;
 }
 .btn-file {
@@ -38,4 +42,24 @@ body {
     background: green;
     cursor: inherit;
     display: block;
+}
+.glyphicon-refresh-animate {
+    -animation: spin 1s infinite linear;
+    -webkit-animation: spin2 1s infinite linear;
+}
+@-webkit-keyframes spin2 {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+@keyframes spin {
+    from {
+        transform: scale(1) rotate(0deg);
+    }
+    to {
+        transform: scale(1) rotate(360deg);
+    }
 }

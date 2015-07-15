@@ -7,16 +7,19 @@ def ticketPreview(name,size):
     im = Image.open("uploads/" + name)
     t = size
     w, h = im.size
+
     #print "Original size: " + str(w) + " " + str(h)
     #print "Ratio: " +str(float(t*256)/w)
     #print "Calculated size: " + str(t*256) + " " + str(int(h*(float(t*256)/w)))
+
     im = im.resize((t*256,int(h*(float(t*256)/w))),Image.ANTIALIAS)
     w, h = im.size
+
     #print "Actual size: " + str(w) + " " + str(h)
     #print "Actual paper size: " + str(w/256) + " tiras, " + str(h/256) + " cuadrados de alto"
-    
+
     im = im.crop((0,0,int(floor(w/256.0))*256,h))
-    
+
     w, h = im.size
     wc = int(ceil(w/256.0))
     hc = int(ceil(h/256.0))
@@ -41,4 +44,3 @@ def ticketPreview(name,size):
                 canvas.paste(imaux,(i*256+(i+1)*marginh,j*256+(j+1)*marginv))
     canvas.save("static/images/" + name.split('.')[0]+ ".jpg")
     return 1
-

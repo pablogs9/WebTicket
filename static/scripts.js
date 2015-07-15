@@ -28,15 +28,17 @@ $(document).ready(function () {
         var files = event.originalEvent.dataTransfer.files;
         handleFileUpload(files.item(0));
     });
-    
-    $("#button-zone").change(function (){
-       var files = $("#button-zone").prop('files');
-       handleFileUpload(files.item(0));
-     });
+
+    $("#button-zone").change(function () {
+        var files = $("#button-zone").prop('files');
+        handleFileUpload(files.item(0));
+    });
 
     function handleFileUpload(file) {
         var data = new FormData();        
         data.append('pic', file);
+        data.append('size', $("#photo-size").val());
+        $("#drop-zone").html('<span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>');
         $.ajax({
             url: '/upload',
             data: data,
@@ -45,7 +47,11 @@ $(document).ready(function () {
             processData: false,
             type: 'POST',
             success: function (data) {
-                $("#ticket-image").attr("src",data);
+                $("#drop-zone").text('Drag and drop another files here...');
+                $("#ticket-image").attr("src", data);
+            },
+            error: function (data) {
+                $("#drop-zone").html('Try with an image format file...');
             }
         });
     };   
